@@ -14,9 +14,6 @@ window {
     transparency:                   "real";
     background-color:               @BG;
     text-color:                     @FG;
-    border:                         2px;
-    border-color:                   @BDR;
-    border-radius:                  10px;
     width:                          500px;
     anchor:                         center;
     x-offset:                       0;
@@ -50,7 +47,7 @@ entry {
     blink:                          true;
     border:                  	    0px 0px 2px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  0px;
     padding:                        8px;
 }
 

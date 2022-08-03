@@ -8,7 +8,7 @@
   width = 275
   height = 100
   offset = 10x50
-  origin = top-right
+  origin = bottom-right
 
   frame_width = 2
   separator_height = 2
@@ -40,19 +40,19 @@
   mouse_right_click = close_all
 
 [urgency_low]
-  background = "#1E1E2E"
-  foreground = "#D9E0EE"
+  background = "#101313"
+  foreground = "#d7d7d7"
   frame_color = "#96CDFB"
   timeout = 5
 
 [urgency_normal]
-  background = "#1E1E2E"
-  frame_color = "#B5E8E0"
+  background = "#101313"
+  frame_color = "#d7d7d7"
   foreground = "#D9E0EE"
   timeout = 10
 
 [urgency_critical]
-  background = "#1E1E2E"
+  background = "#101313"
   frame_color = "#F88D96"
-  foreground = "#D9E0EE"
+  foreground = "#d7d7d7"
   timeout = 20

@@ -83,7 +83,7 @@ case-indicator {
 listview {
     background-color:               @BG;
     columns:                        1;
-    lines:			                5;
+    lines:			    6;
     spacing:                        15px;
     cycle:                          true;
     dynamic:                        true;
@@ -135,7 +135,7 @@ element selected {
 element.active,
 element.selected.urgent {
   background-color: @ON;
-  text-color: @BG;
+  text-color: @BGA;
   border-color: @ON;
 }
 
@@ -146,7 +146,7 @@ element.selected.urgent {
 element.urgent,
 element.selected.active {
   background-color: @OFF;
-  text-color: @BG;
+  text-color: @BGA;
   border-color: @OFF;
 }
 

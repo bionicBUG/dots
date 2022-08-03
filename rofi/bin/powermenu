@@ -10,6 +10,7 @@ if [[ "$DIR" == "powermenus" ]]; then
 	lock=""
 	suspend=""
 	logout=""
+	bios="拉"
 	ddir="$HOME/.config/rofi/config"
 else
 
@@ -25,6 +26,7 @@ else
 		lock=""
 		suspend=""
 		logout=""
+		bios="拉"
   # Section 2
 #		shutdown="襤"
 #		reboot="ﰇ"
@@ -40,6 +42,7 @@ else
 		lock=" Lock"
 		suspend=" Sleep"
 		logout=" Logout"
+		bios="拉 BIOS"
   # Section 2
 #		shutdown="襤Shutdown"
 #		reboot="ﰇ Restart"
@@ -65,7 +68,7 @@ show_msg() {
 }
 
 # Variable passed to rofi
-options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+options="$lock\n$shutdown\n$reboot\n$suspend\n$logout\n$bios"
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
 case $chosen in
@@ -79,6 +82,16 @@ case $chosen in
 			show_msg
         fi
         ;;
+	$bios)
+		ans=$(rdialog &)
+		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+			systemctl reboot --firmware-setup
+		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+			exit
+        	else
+			show_msg
+        	fi
+        	;;
     $reboot)
 		ans=$(rdialog &)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
@@ -90,14 +103,14 @@ case $chosen in
         fi
         ;;
     $lock)
-        sh $HOME/.local/bin/lock
+        sh $HOME/.config/rofi/bin/lock/i3fancy.sh
         ;;
     $suspend)
 		ans=$(rdialog &)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 			mpc -q pause
 			amixer set Master mute
-			sh $HOME/.local/bin/lock
+			sh $HOME/.config/rofi/bin/lock/i3fancy.sh
 			systemctl suspend
 		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
 			exit
