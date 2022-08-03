@@ -10,14 +10,11 @@ killall -9 ksuperkey xfce4-power-manager &
 killall sxhkd; sxhkd &
 killall dunst; dunst &
 
-## Power Manager
-xfce4-power-manager &
-
 ## Compositor
 picom -b &
 
 ## Background
-feh --bg-fill -r -z $HOME/Pictures/Wallpapers &
+$HOME/.config/bspwm/wallpapers &
 
 ## Redshift (Optional)
 # redshift -x && redshift -O 4000k &
